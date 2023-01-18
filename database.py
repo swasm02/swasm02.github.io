@@ -20,13 +20,13 @@ try:
     
     # Display columns
     print('\nColumns in Sensors table:')
-    data=cursor.execute('''SELECT * FROM Sensors''')
+    data=cursor.execute("SELECT * FROM Sensors")
     for column in data.description:
         print(column[0])   
         
     # Display data
     print('\nData in Sensors table:')
-    data=cursor.execute('''SELECT * FROM Sensors''')
+    data=cursor.execute("SELECT * FROM Sensors")
     for row in data:
         print(row) 
     
