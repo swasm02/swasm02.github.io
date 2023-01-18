@@ -1,19 +1,19 @@
-import sqlite3, datetime
+import sqlite3, time
 
 file = "sensors.db"
 try:
     conn = sqlite3.connect(file)
     cursor = conn.cursor()
-    date = datetime.datetime.now()
     
-    cursor.execute("Drop database sensors.py")
-    
-    cmd = "CREATE TABLE Sensors(datum var_char(255), eco2 int,  tvoc int, humidity int, temperature int)"
-    cursor.execute(cmd)
+    cmd = "CREATE TABLE Sensors(Datum var_char(255), Zeit var_char(255), eco2 int,  tvoc int, humidity int, temperature int)"
+    #cursor.execute(cmd)
     
     # Queries to INSERT records.
-    cmd1 = "INSERT INTO Sensors(eco2, tvoc, humidity, temperature) VALUES (" + str(date) + ", 400, 0, 5, 21)"
-    cursor.execute(cmd1)
+    currenttime = time.strftime("%H:%M:%S", time.localtime())
+    currentdate = time.strftime("%d.%m.%Y", time.localtime())
+    
+    insertQuery = "INSERT INTO SENSORS VALUES (?, ?, ?, ?, ?, ?)"
+    cursor.execute(insertQuery, (currentdate, currenttime, 400, 0, 5, 21))
     
     # Commit your changes in the database    
     conn.commit()
