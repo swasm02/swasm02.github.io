@@ -1,3 +1,5 @@
+#Version 1.2
+
 import sqlite3, time
 
 file = "sensors.db"
@@ -5,7 +7,7 @@ try:
     conn = sqlite3.connect(file)
     cursor = conn.cursor()
     
-    cmd = "CREATE TABLE Sensors(Datum var_char(255), Zeit var_char(255), eco2 int,  tvoc int, humidity int, temperature int)"
+    cmd = "CREATE TABLE Sensors(Datum var_char(255), Zeit var_char(255), eco2 int,  tvoc int, humidity int, temperature int, Primary Key (datum, zeit))"
     #cursor.execute(cmd)
     
     # Queries to INSERT records.
@@ -13,7 +15,7 @@ try:
     currentdate = time.strftime("%d.%m.%Y", time.localtime())
     
     insertQuery = "INSERT INTO SENSORS VALUES (?, ?, ?, ?, ?, ?)"
-    cursor.execute(insertQuery, (currentdate, currenttime, 400, 0, 5, 21))
+    cursor.execute(insertQuery, (currentdate, currenttime, 800, 3, 16, 14))
     
     # Commit your changes in the database    
     conn.commit()
