@@ -1,4 +1,4 @@
-<! Version 1.6.5>
+<! Version 1.8>
 <!doctype html>
 <html lang="de">
   <head>
@@ -114,7 +114,7 @@
             $db = new SQLite3("sensors.db");
 
             // Query the sensors table
-            $result = $db->query("SELECT * FROM sensors");
+            $result = $db->query("SELECT * FROM Sensors");
 
             // Print table headers
             echo "<table>
