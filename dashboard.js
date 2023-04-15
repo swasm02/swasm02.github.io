@@ -27,6 +27,8 @@
   }
   });
 
+  console.log(co2_timestamp, co2_data)
+
   const myChart = new Chart(ctx, {
     type: 'line',
     data: {
