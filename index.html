@@ -108,43 +108,7 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">CO2-Anteil der Luft - Verlauf</h1>
           </div>
-    
-          <?php
-            // Connect to the sqlite database
-            $db = new SQLite3("sensors.db");
-
-            // Query the sensors table
-            $result = $db->query("SELECT * FROM Sensors");
-
-            // Print table headers
-            echo "<table>
-              <tr>
-                <th>ID</th>
-                <th>Sensor Name</th>
-                <th>Sensor Type</th>
-                <th>Value</th>
-                <th>Timestamp</th>
-                <th>Location</th>
-              </tr>";
-
-            // Print each row of the table
-            while ($row = $result->fetchArray()) {
-              echo "<tr>
-                <td>{$row['Datum']}</td>
-                <td>{$row['Zeit']}</td>
-                <td>{$row['eco2']}</td>
-                <td>{$row['tvoc']}</td>
-                <td>{$row['humidity']}</td>
-                <td>{$row['temperature']}</td>
-              </tr>";
-            }
-
-            echo "</table>";
-
-            // Close the database connection
-            $db->close();
-          ?>
-
+  
           <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
     
           <h2>Section title</h2>
